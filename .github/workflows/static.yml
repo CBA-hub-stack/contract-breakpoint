@@ -32,12 +32,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-```
-
-**3. Commit changes**
-
-**4. Espera 2 minutos** para que se ejecute el workflow
-
-**5. Prueba de nuevo:**
-```
-https://cba-hub-stack.github.io/contract-breakpoint/
