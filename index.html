@@ -6,39 +6,107 @@
   <title>Contract Breakpoint Analysis</title>
   <meta name="description" content="Contract Breakpoint Analysis is a pre-contract decision product. Pre-signature only. Written-only. No advice. No consulting." />
   <style>
-    :root { --max: 820px; }
+    :root {
+      --max: 860px;
+      --pad: 22px;
+      --border: #e8e8e8;
+      --muted: #444;
+      --bg: #ffffff;
+      --soft: #fafafa;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color: #111;
-      background: #ffffff;
+      background: var(--bg);
+      line-height: 1.55;
     }
-    header { border-bottom: 1px solid #e6e6e6; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 18px 18px; }
-    .brand { font-weight: 700; letter-spacing: 0.2px; }
-    nav a { margin-right: 14px; text-decoration: none; color: #111; }
-    nav a:hover { text-decoration: underline; }
-    h1 { font-size: 34px; margin: 28px 0 8px; }
-    h2 { font-size: 22px; margin: 28px 0 10px; }
-    h3 { font-size: 18px; margin: 18px 0 8px; }
-    p, li { line-height: 1.55; font-size: 16px; }
-    .note { color: #333; }
-    .rulebox {
-      border: 1px solid #e6e6e6;
-      padding: 14px 16px;
-      border-radius: 10px;
-      background: #fafafa;
-      margin-top: 16px;
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
-    footer { border-top: 1px solid #e6e6e6; margin-top: 34px; }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px var(--pad);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: #222;
+    }
+
+    main { padding: 10px 0 34px; }
+    h1 {
+      font-size: 34px;
+      margin: 26px 0 10px;
+      letter-spacing: -0.2px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 30px 0 10px;
+      letter-spacing: -0.1px;
+    }
+    p { margin: 10px 0; }
+    .note { color: var(--muted); margin-top: 6px; }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 16px 16px;
+      margin: 18px 0 6px;
+    }
+    ul { margin: 10px 0 0 18px; }
+    li { margin: 6px 0; }
+
+    .section {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      padding: 18px 0;
+    }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 28px; }
+      .wrap { padding: 14px 16px; }
+      .card { padding: 14px; }
+    }
   </style>
 </head>
 
 <body>
   <header>
     <div class="wrap">
-      <div class="brand">Contract Breakpoint Analysis</div>
-      <div style="margin-top:10px;">
+      <div class="topbar">
+        <div class="brand">Contract Breakpoint Analysis</div>
         <nav>
           <a href="#what-exists">What Exists</a>
           <a href="#why-contracts-fail">Why Contracts Fail</a>
@@ -55,7 +123,7 @@
       A pre-contract decision product. Used only before signing a specific commercial contract.
     </p>
 
-    <div class="rulebox">
+    <div class="card">
       <p style="margin:0;">
         This product does not provide advice. It does not approve, veto, or recommend.
         It declares structural inadmissibility relative to a survivability threshold.
@@ -63,7 +131,7 @@
       </p>
     </div>
 
-    <section id="what-exists">
+    <section id="what-exists" class="section">
       <h2>What Exists</h2>
       <p>
         Contract Breakpoint Analysis evaluates whether an agreement, as written, remains survivable
@@ -74,7 +142,7 @@
         It assesses whether the contract survives those incidents.
       </p>
 
-      <h3>What it is not</h3>
+      <h2 style="font-size:18px; margin-top:18px;">What it is not</h2>
       <ul>
         <li>Not consulting</li>
         <li>Not legal advice</li>
@@ -85,7 +153,7 @@
       </ul>
     </section>
 
-    <section id="why-contracts-fail">
+    <section id="why-contracts-fail" class="section">
       <h2>Why Contracts Fail Under Execution</h2>
       <p>
         Many commercial losses do not occur because a contract is illegal.
@@ -93,20 +161,16 @@
         cannot be executed in time, in the correct form, or through the correct channel.
       </p>
       <p>
-        Rights are often lost silently:
-        deadlines are missed,
-        notices are misrouted,
-        escalation thresholds are misunderstood,
+        Rights are often lost silently: deadlines are missed, notices are misrouted, escalation thresholds are misunderstood,
         or documentation is incomplete at the moment it matters.
       </p>
       <p>
-        Contract Breakpoint Analysis exists to make that failure visible
-        <strong>before signature</strong>,
+        Contract Breakpoint Analysis exists to make that failure visible <strong>before signature</strong>,
         when correction is still cheap and optionality still exists.
       </p>
     </section>
 
-    <section id="boundaries">
+    <section id="boundaries" class="section">
       <h2>Boundaries</h2>
       <ul>
         <li><strong>Pre-signature only.</strong> If a contract is already signed, this product is not applicable.</li>
@@ -119,9 +183,7 @@
   </main>
 
   <footer>
-    <div class="wrap">
-      <div class="note">© Contract Breakpoint Analysis</div>
-    </div>
+    <div class="wrap">© Contract Breakpoint Analysis</div>
   </footer>
 </body>
 </html>
