@@ -150,8 +150,7 @@
     }
 
     .submit:hover { opacity: 0.88; }
-
-    .small { font-size: 13px; color: var(--muted); }
+    .submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
     .already-signed {
       display: none;
@@ -162,6 +161,28 @@
       font-size: 14px;
       color: #7a4a10;
       margin-bottom: 16px;
+    }
+
+    .success-msg {
+      display: none;
+      background: #f0faf4;
+      border: 1px solid #b8dfc8;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 14px;
+      color: #1a5c35;
+      margin-top: 16px;
+    }
+
+    .error-msg {
+      display: none;
+      background: #fff0f0;
+      border: 1px solid #f0b8b8;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 14px;
+      color: #7a1010;
+      margin-top: 16px;
     }
 
     footer {
@@ -266,12 +287,10 @@
 
     <section id="contact" class="section">
       <h2>Pre-Signature Contact</h2>
-      <p>
-        This intake is for pre-signature contract exposure only.
-        Submitting opens a draft email in your mail client with the information pre-filled.
-      </p>
+      <p>This intake is for pre-signature contract exposure only.</p>
 
       <div class="card form-wrap">
+
         <div class="field">
           <label for="stage">Contract status</label>
           <select id="stage" onchange="checkStage(this)">
@@ -365,11 +384,16 @@
             <input id="linkedin" type="text" />
           </div>
 
-          <button class="submit" onclick="submitForm()">Submit</button>
-          <p class="small" style="margin-top:10px;">
-            This opens a draft in your email client addressed to hugo@contractbreakpoint.com.
-          </p>
+          <button class="submit" id="submit-btn" onclick="submitForm()">Submit</button>
+
+          <div class="success-msg" id="success-msg">
+            Received. You will be contacted at the email provided if the exposure qualifies.
+          </div>
+          <div class="error-msg" id="error-msg">
+            Something went wrong. Please try again or write directly to hugo@contractbreakpoint.com.
+          </div>
         </div>
+
       </div>
     </section>
   </main>
@@ -395,7 +419,7 @@
       return document.getElementById(id).value.trim();
     }
 
-    function submitForm() {
+    async function submitForm() {
       var stage = v('stage');
       if (!stage) { alert('Please select contract status.'); return; }
       if (stage === 'signed') { return; }
@@ -409,28 +433,46 @@
         return;
       }
 
-      var body =
-        'Pre-Signature Exposure — CBA Intake\n\n' +
-        'Contract status: Before signature\n' +
-        'Contract type: ' + v('contract-type') + '\n' +
-        'Jurisdiction(s): ' + v('jurisdiction') + '\n' +
-        'Current stage: ' + v('stage-detail') + '\n' +
-        'Counterparty type: ' + v('counterparty') + '\n\n' +
-        'Primary concern:\n' + concern + '\n\n' +
-        'Operational consequence if this fails:\n' + v('failure') + '\n\n' +
-        'Time to signature: ' + v('time-to-sig') + '\n' +
-        'Legal reviewed: ' + v('legal-review') + '\n' +
-        'Financial exposure already committed: ' + v('exposure') + '\n\n' +
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'LinkedIn / company URL: ' + v('linkedin');
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
 
-      var mailto =
-        'mailto:hugo@contractbreakpoint.com' +
-        '?subject=' + encodeURIComponent('Pre-Signature Exposure') +
-        '&body=' + encodeURIComponent(body);
+      var data = {
+        access_key: '77b93cfa-7294-4e76-a546-b2a7514fa040',
+        subject: 'Pre-Signature Exposure',
+        from_name: name,
+        email: email,
+        'Contract type': v('contract-type'),
+        'Jurisdiction': v('jurisdiction'),
+        'Current stage': v('stage-detail'),
+        'Counterparty type': v('counterparty'),
+        'Primary concern': concern,
+        'Operational consequence': v('failure'),
+        'Time to signature': v('time-to-sig'),
+        'Legal reviewed': v('legal-review'),
+        'Financial exposure': v('exposure'),
+        'LinkedIn / company URL': v('linkedin')
+      };
 
-      window.location.href = mailto;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        var json = await res.json();
+        if (json.success) {
+          document.getElementById('success-msg').style.display = 'block';
+          document.getElementById('error-msg').style.display = 'none';
+          btn.style.display = 'none';
+        } else {
+          throw new Error('failed');
+        }
+      } catch (e) {
+        document.getElementById('error-msg').style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Submit';
+      }
     }
   </script>
 </body>
