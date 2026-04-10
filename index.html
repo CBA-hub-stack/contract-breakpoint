@@ -121,10 +121,7 @@
       line-height: 1.4;
     }
 
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
+    textarea { min-height: 100px; resize: vertical; }
 
     input:focus, select:focus, textarea:focus {
       outline: none;
@@ -152,7 +149,7 @@
     .submit:hover { opacity: 0.88; }
     .submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .already-signed {
+    .notice-signed {
       display: none;
       background: #fff8f0;
       border: 1px solid #f0d8b8;
@@ -160,7 +157,6 @@
       padding: 14px 16px;
       font-size: 14px;
       color: #7a4a10;
-      margin-bottom: 16px;
     }
 
     .success-msg {
@@ -287,7 +283,7 @@
 
     <section id="contact" class="section">
       <h2>Pre-Signature Contact</h2>
-      <p>This intake is for pre-signature contract exposure only.</p>
+      <p>Pre-signature only. Post-signature submissions are not processed.</p>
 
       <div class="card form-wrap">
 
@@ -300,11 +296,12 @@
           </select>
         </div>
 
-        <div class="already-signed" id="signed-notice">
-          This product is not applicable to contracts already signed.
+        <div class="notice-signed" id="signed-notice">
+          This intake is not applicable post-signature.
         </div>
 
-        <div id="form-fields">
+        <div id="form-fields" style="display:none;">
+
           <div class="grid">
             <div class="field">
               <label for="contract-type">Contract type</label>
@@ -340,7 +337,12 @@
 
           <div class="field">
             <label for="concern">Primary concern</label>
-            <textarea id="concern" placeholder="State the structural exposure briefly."></textarea>
+            <textarea id="concern" placeholder="State the structural exposure briefly." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="breaks-first">What breaks first if this fails</label>
+            <textarea id="breaks-first" placeholder="Identify the first point of structural failure." required></textarea>
           </div>
 
           <div class="field">
@@ -371,11 +373,11 @@
           <div class="grid">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" type="text" />
+              <input id="name" type="text" required />
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" />
+              <input id="email" type="email" required />
             </div>
           </div>
 
@@ -392,8 +394,8 @@
           <div class="error-msg" id="error-msg">
             Something went wrong. Please try again or write directly to hugo@contractbreakpoint.com.
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   </main>
@@ -409,9 +411,12 @@
       if (sel.value === 'signed') {
         notice.style.display = 'block';
         fields.style.display = 'none';
-      } else {
+      } else if (sel.value === 'before') {
         notice.style.display = 'none';
         fields.style.display = 'block';
+      } else {
+        notice.style.display = 'none';
+        fields.style.display = 'none';
       }
     }
 
@@ -420,16 +425,13 @@
     }
 
     async function submitForm() {
-      var stage = v('stage');
-      if (!stage) { alert('Please select contract status.'); return; }
-      if (stage === 'signed') { return; }
-
       var name = v('name');
       var email = v('email');
       var concern = v('concern');
+      var breaks = v('breaks-first');
 
-      if (!name || !email || !concern) {
-        alert('Please fill in at least Name, Email, and Primary concern.');
+      if (!name || !email || !concern || !breaks) {
+        alert('Please fill in Name, Email, Primary concern, and What breaks first.');
         return;
       }
 
@@ -447,6 +449,7 @@
         'Current stage': v('stage-detail'),
         'Counterparty type': v('counterparty'),
         'Primary concern': concern,
+        'What breaks first': breaks,
         'Operational consequence': v('failure'),
         'Time to signature': v('time-to-sig'),
         'Legal reviewed': v('legal-review'),
