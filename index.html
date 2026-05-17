@@ -1,11 +1,9 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contract Breakpoint Analysis</title>
-
   <meta name="description" content="Contract Breakpoint Analysis evaluates whether commercial agreements remain survivable under execution stress. Pre-signature only." />
 
   <style>
@@ -19,13 +17,8 @@
       --text: #111111;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -35,14 +28,8 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     header {
       position: sticky;
@@ -67,10 +54,7 @@
       flex-wrap: wrap;
     }
 
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
+    .brand { font-weight: 700; letter-spacing: 0.2px; }
 
     nav {
       display: flex;
@@ -79,9 +63,7 @@
       font-size: 14px;
     }
 
-    main {
-      padding: 10px 0 40px;
-    }
+    main { padding: 10px 0 40px; }
 
     h1 {
       font-size: 36px;
@@ -96,13 +78,9 @@
       letter-spacing: -0.2px;
     }
 
-    p {
-      margin: 10px 0;
-    }
+    p { margin: 10px 0; }
 
-    .hero {
-      margin-top: 10px;
-    }
+    .hero { margin-top: 10px; }
 
     .hero p {
       font-size: 18px;
@@ -129,13 +107,8 @@
       margin-top: 18px;
     }
 
-    ul {
-      margin: 10px 0 0 18px;
-    }
-
-    li {
-      margin: 8px 0;
-    }
+    ul { margin: 10px 0 0 18px; }
+    li { margin: 8px 0; }
 
     .grid {
       display: grid;
@@ -143,9 +116,7 @@
       gap: 14px;
     }
 
-    .field {
-      margin-bottom: 16px;
-    }
+    .field { margin-bottom: 16px; }
 
     label {
       display: block;
@@ -154,9 +125,7 @@
       margin-bottom: 6px;
     }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       border: 1px solid #d8d8d8;
       border-radius: 10px;
@@ -172,9 +141,7 @@
       resize: vertical;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
+    input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: #999;
     }
@@ -191,14 +158,8 @@
       cursor: pointer;
     }
 
-    .submit:hover {
-      opacity: 0.9;
-    }
-
-    .submit:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+    .submit:hover { opacity: 0.9; }
+    .submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
     .notice-signed {
       display: none;
@@ -241,27 +202,14 @@
     }
 
     @media (max-width: 720px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
     }
 
     @media (max-width: 520px) {
-      .wrap {
-        padding: 14px 16px;
-      }
-
-      nav {
-        gap: 10px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
+      .wrap { padding: 14px 16px; }
+      nav { gap: 10px; }
+      h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -366,12 +314,11 @@
     <h2>Execution Signals</h2>
 
     <p>
-      Repeating operational patterns that consistently degrade contractual survivability across shipping,
-      logistics, procurement, infrastructure and commodity environments.
+      Repeating operational patterns that consistently degrade contractual survivability
+      across shipping, logistics, procurement, infrastructure and commodity environments.
     </p>
 
     <div class="card">
-
       <p><strong>Routing instability</strong></p>
       <p>
         Physical movement continues while the original contractual route,
@@ -380,61 +327,66 @@
 
       <p><strong>Sequencing drift</strong></p>
       <p>
-        Cargo, counterparties, approvals and documentation stop moving in the order the agreement assumes.
+        Cargo, counterparties, approvals and documentation stop moving
+        in the order the agreement assumes.
       </p>
 
       <p><strong>Notice deterioration</strong></p>
       <p>
-        Operational compression destroys the ability to preserve rights through valid timing,
-        documentation and communication channels.
+        Operational compression destroys the ability to preserve rights
+        through valid timing, documentation and communication channels.
       </p>
 
       <p><strong>Allocation compression</strong></p>
       <p>
-        Scarce capacity reallocates execution priority faster than contractual protection can react.
+        Scarce capacity reallocates execution priority faster than
+        contractual protection can react.
       </p>
 
       <p><strong>Clearance dependency</strong></p>
       <p>
-        Customs, inspection, terminal or administrative gates become the real execution constraint
-        before liability stabilizes.
+        Customs, inspection, terminal or administrative gates become
+        the real execution constraint before liability stabilizes.
       </p>
 
       <p><strong>Recoverability fragmentation</strong></p>
       <p>
-        Recovery paths split across operators, insurers, jurisdictions and counterparties before accountability converges.
+        Recovery paths split across operators, insurers, jurisdictions
+        and counterparties before accountability converges.
       </p>
 
       <p><strong>Parallel execution divergence</strong></p>
       <p>
-        Legal, operational and commercial timelines stop moving at the same speed.
+        Legal, operational and commercial timelines stop moving
+        at the same speed.
       </p>
-
     </div>
 
-    <h2 style="font-size:18px; margin-top:30px;">Current Operational Surface</h2>
+    <h2 style="font-size:18px; margin-top:30px;">
+      Observed Execution Conditions
+    </h2>
 
     <p class="note">
-      Current events are treated as temporary manifestations of recurring execution patterns.
+      Recurring execution conditions currently visible across active commercial corridors.
     </p>
 
     <div class="card">
-
-      <p><strong>Strait of Hormuz — Escort allocation drift</strong></p>
+      <p><strong>Escort-mediated transit continuity</strong></p>
 
       <p>
-        Escort availability may preserve cargo movement while degrading scheduling certainty underneath it.
+        Cargo movement remains technically possible while timing reliability
+        deteriorates underneath the execution chain.
       </p>
 
       <p>
-        Transit continuity can coexist with sequencing collapse, berth conflict,
-        notice deterioration and laycan compression.
+        Transit continuity no longer guarantees berth alignment,
+        notice integrity or downstream sequencing stability.
       </p>
 
       <p>
-        The visible movement of cargo does not guarantee contractual recoverability remains intact.
+        Recoverability pressure migrates downstream before counterparties
+        formally recognize execution degradation.
       </p>
-
     </div>
   </section>
 
@@ -476,7 +428,6 @@
       <div id="form-fields" style="display:none;">
 
         <div class="grid">
-
           <div class="field">
             <label for="contract-type">Contract type</label>
             <input id="contract-type" type="text" placeholder="Supply, EPC, Charter, Services, Other" />
@@ -486,11 +437,9 @@
             <label for="jurisdiction">Jurisdiction(s)</label>
             <input id="jurisdiction" type="text" placeholder="Country / governing law / forum" />
           </div>
-
         </div>
 
         <div class="grid">
-
           <div class="field">
             <label for="stage-detail">Current stage</label>
 
@@ -513,40 +462,24 @@
               <option>Other</option>
             </select>
           </div>
-
         </div>
 
         <div class="field">
           <label for="concern">Primary concern</label>
-
-          <textarea
-            id="concern"
-            placeholder="State the structural exposure briefly."
-            required
-          ></textarea>
+          <textarea id="concern" placeholder="State the structural exposure briefly." required></textarea>
         </div>
 
         <div class="field">
           <label for="breaks-first">What breaks first if this fails</label>
-
-          <textarea
-            id="breaks-first"
-            placeholder="Identify the first operational or contractual failure point."
-            required
-          ></textarea>
+          <textarea id="breaks-first" placeholder="Identify the first operational or contractual failure point." required></textarea>
         </div>
 
         <div class="field">
           <label for="failure">Operational consequence if this fails</label>
-
-          <textarea
-            id="failure"
-            placeholder="What becomes commercially unrecoverable if the structure degrades?"
-          ></textarea>
+          <textarea id="failure" placeholder="What becomes commercially unrecoverable if the structure degrades?"></textarea>
         </div>
 
         <div class="grid">
-
           <div class="field">
             <label for="time-to-sig">Time to signature</label>
             <input id="time-to-sig" type="text" placeholder="e.g. 3 days / 2 weeks" />
@@ -561,7 +494,6 @@
               <option>No</option>
             </select>
           </div>
-
         </div>
 
         <div class="field">
@@ -570,7 +502,6 @@
         </div>
 
         <div class="grid">
-
           <div class="field">
             <label for="name">Name</label>
             <input id="name" type="text" required />
@@ -580,7 +511,6 @@
             <label for="email">Email</label>
             <input id="email" type="email" required />
           </div>
-
         </div>
 
         <div class="field">
@@ -588,9 +518,7 @@
           <input id="linkedin" type="text" />
         </div>
 
-        <button class="submit" id="submit-btn" onclick="submitForm()">
-          Submit
-        </button>
+        <button class="submit" id="submit-btn" onclick="submitForm()">Submit</button>
 
         <div class="success-msg" id="success-msg">
           Received. You will be contacted at the email provided if the exposure qualifies.
@@ -601,7 +529,6 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
@@ -614,7 +541,6 @@
 </footer>
 
 <script>
-
 function checkStage(sel) {
   var notice = document.getElementById('signed-notice');
   var fields = document.getElementById('form-fields');
@@ -636,7 +562,6 @@ function v(id) {
 }
 
 async function submitForm() {
-
   var name = v('name');
   var email = v('email');
   var concern = v('concern');
@@ -648,7 +573,6 @@ async function submitForm() {
   }
 
   var btn = document.getElementById('submit-btn');
-
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
@@ -671,42 +595,28 @@ async function submitForm() {
   };
 
   try {
-
     var res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
 
     var json = await res.json();
 
     if (json.success) {
-
       document.getElementById('success-msg').style.display = 'block';
       document.getElementById('error-msg').style.display = 'none';
-
       btn.style.display = 'none';
-
     } else {
-
       throw new Error('failed');
-
     }
-
   } catch (e) {
-
     document.getElementById('error-msg').style.display = 'block';
-
     btn.disabled = false;
     btn.textContent = 'Submit';
-
   }
 }
-
 </script>
 
 </body>
 </html>
-```
